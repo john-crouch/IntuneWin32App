@@ -55,10 +55,11 @@ function Update-IntuneWin32AppPackageFile {
         else {
             $AuthTokenLifeTime = ($Global:AuthToken.ExpiresOn.datetime - (Get-Date).ToUniversalTime()).Minutes
             if ($AuthTokenLifeTime -le 0) {
-                Write-Verbose -Message "Existing token found but has expired, use Connect-MSIntuneGraph to request a new authentication token"; break
+                Write-Output "Existing token found but has expired, requesting a new authentication token..."
+                $Global:AuthToken = Get-AuthToken
             }
             else {
-                Write-Verbose -Message "Current authentication token expires in (minutes): $($AuthTokenLifeTime)"
+                Write-Output "Current authentication token expires in (minutes): $($AuthTokenLifeTime)"
             }
         }
 
