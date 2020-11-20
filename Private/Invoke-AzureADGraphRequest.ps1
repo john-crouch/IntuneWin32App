@@ -27,7 +27,7 @@ function Invoke-AzureADGraphRequest {
     )
     try {
         # Construct full URI
-        $GraphURI = "https://graph.microsoft.com/v1.0/$($Resource)"
+        $GraphURI = "https://graph.microsoft.us/v1.0/$($Resource)"
         Write-Verbose -Message "$($Method) $($GraphURI)"
 
         # Call Graph API and get JSON response

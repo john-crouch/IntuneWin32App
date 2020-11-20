@@ -42,7 +42,7 @@ function Invoke-IntuneGraphRequest {
     )
     try {
         # Construct full URI
-        $GraphURI = "https://graph.microsoft.com/$($APIVersion)/deviceAppManagement/$($Resource)"
+        $GraphURI = "https://graph.microsoft.us/$($APIVersion)/deviceAppManagement/$($Resource)"
         Write-Verbose -Message "$($Method) $($GraphURI)"
 
         # Call Graph API and get JSON response
