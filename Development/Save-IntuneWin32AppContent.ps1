@@ -72,7 +72,8 @@
     )
     Begin {
         # Ensure required auth token exists or retrieve a new one
-        Get-AuthToken -TenantName $TenantName -ApplicationID $ApplicationID -PromptBehavior $PromptBehavior
+        #Get-AuthToken -TenantName $TenantName -ApplicationID $ApplicationID -PromptBehavior $PromptBehavior
+        $Global:AuthToken = Get-AuthToken
     }
     Process {
         Write-Verbose -Message "Attempting to locate content files for Win32 app with ID: $($ID)"

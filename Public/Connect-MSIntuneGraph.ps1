@@ -30,7 +30,7 @@ function Connect-MSIntuneGraph {
     #>
     [CmdletBinding(SupportsShouldProcess = $true)]
     param(
-        [parameter(Mandatory = $true, HelpMessage = "Specify the tenant name, e.g. domain.onmicrosoft.com.")]
+        [parameter(Mandatory = $false, HelpMessage = "Specify the tenant name, e.g. domain.onmicrosoft.com.")]
         [ValidateNotNullOrEmpty()]
         [string]$TenantName,
         
@@ -45,8 +45,8 @@ function Connect-MSIntuneGraph {
     )
     Begin {
         # Ensure required auth token exists or retrieve a new one
-        Get-AuthToken -TenantName $TenantName -ApplicationID $ApplicationID -PromptBehavior $PromptBehavior
-
-        return $Global:AuthToken
+        #Get-AuthToken -TenantName $TenantName -ApplicationID $ApplicationID -PromptBehavior $PromptBehavior
+        $Global:AuthToken = Get-AuthToken
+        #return $Global:AuthToken
     }
 }
